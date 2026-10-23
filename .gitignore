@@ -1,1 +1,5 @@
-includes/db.php
+# Database connection
+/back_end/includes/db.php
+
+# Temporary testing files
+/back_end/auth/test_register.html
