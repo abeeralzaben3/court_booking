@@ -47,4 +47,29 @@ class Auth
             $hashedPassword
         ]);
     }
+    
+public function login(string $email, string $password): ?array
+{
+    // Find user by email
+    $stmt = $this->pdo->prepare(
+        "SELECT id, full_name, email, password, role
+         FROM users
+         WHERE email = ?"
+    );
+
+    $stmt->execute([$email]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Check user and password
+    if (!$user || !password_verify($password, $user['password'])) {
+        return null;
+    }
+
+    // Remove password hash from returned data
+    unset($user['password']);
+
+    return $user;
+}
+
 }
