@@ -3,3 +3,6 @@
 
 # Temporary testing files
 /back_end/auth/test_register.html
+/back_end/auth/test_login.html
+/back_end/auth/test_logout.html
+/back_end/auth/test_session.php
