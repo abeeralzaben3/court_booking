@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FF7F50" />
+
+  <title>Book a Court | CourtBook</title>
+
+  <link rel="stylesheet" href="../../../shared/css/variables.css" />
+  <link rel="stylesheet" href="../../../shared/css/global.css" />
+  <link rel="stylesheet" href="../../../shared/css/navbar.css" />
+  <link rel="stylesheet" href="../../../shared/css/footer.css" />
+  <link rel="stylesheet" href="./booking.css" />
+
+  <script src="../../../shared/js/navbar.js" defer></script>
+  <script src="../../../shared/js/footer.js" defer></script>
+  <script src="../../../shared/js/logout.js" defer></script>
+  <script src="./booking.js" defer></script>
+</head>
+
+<body>
+  <div id="navbar-root"></div>
+
+  <main class="booking-main">
+    <div class="booking-shell">
+
+      <a
+        class="back-link"
+        href="../home/home.html#explore-courts"
+      >
+        ← Back to courts
+      </a>
+
+      <header class="page-heading">
+        <span class="eyebrow">
+          YOUR NEXT GAME STARTS HERE
+        </span>
+
+        <h1>Book your <span>court.</span></h1>
+
+        <p>
+          Choose your date and time, check availability,
+          and secure your spot.
+        </p>
+      </header>
+
+      <div
+        id="page-message"
+        class="notice"
+        role="alert"
+        hidden
+      ></div>
+
+      <div class="booking-layout">
+
+        <!-- Booking Form -->
+        <section
+          class="booking-panel"
+          aria-labelledby="form-heading"
+        >
+
+          <div class="panel-heading">
+            <span class="step-bubble">01</span>
+
+            <div>
+              <h2 id="form-heading">
+                Choose your session
+              </h2>
+              <p>
+                Pick a date and your preferred time slot.
+              </p>
+            </div>
+          </div>
+
+          <form id="booking-form" novalidate>
+
+            <label
+              class="field-label"
+              for="booking-date"
+            >
+              Booking date
+            </label>
+
+            <input
+              type="date"
+              id="booking-date"
+              required
+            />
+
+            <div class="time-grid">
+
+              <div>
+                <label
+                  class="field-label"
+                  for="start-time"
+                >
+                  Start time
+                </label>
+
+                <select id="start-time" required>
+                  <option value="">
+                    Select time
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  class="field-label"
+                  for="end-time"
+                >
+                  End time
+                </label>
+
+                <select id="end-time" required>
+                  <option value="">
+                    Select time
+                  </option>
+                </select>
+              </div>
+
+            </div>
+
+            <p class="field-hint">
+              Times are shown in the court's local time.
+              Sessions must start and end on the same day.
+            </p>
+
+            <!-- Availability -->
+            <div class="availability-panel">
+
+              <div class="availability-heading">
+                <span class="step-bubble">02</span>
+
+                <div>
+                  <h3>Check availability</h3>
+                  <p>
+                    We'll check existing bookings for your date.
+                  </p>
+                </div>
+              </div>
+
+              <button
+                id="check-availability"
+                class="secondary-button"
+                type="button"
+              >
+                Check Availability
+                <span aria-hidden="true">↗</span>
+              </button>
+
+              <div
+                id="availability-result"
+                class="availability-result"
+                role="status"
+                aria-live="polite"
+              >
+                Select a date and time to check availability.
+              </div>
+
+            </div>
+
+            <!-- Price -->
+            <div class="price-breakdown">
+
+              <div>
+                <span>Duration</span>
+                <strong id="duration-value">—</strong>
+              </div>
+
+              <div>
+                <span>Hourly rate</span>
+                <strong id="rate-value">—</strong>
+              </div>
+
+              <div class="total-row">
+                <span>Estimated total</span>
+                <strong id="total-value">—</strong>
+              </div>
+
+            </div>
+
+            <button
+              type="submit"
+              id="confirm-booking"
+              class="primary-button"
+              disabled
+            >
+              Confirm Booking
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <p class="submit-note">
+              Availability is checked again by the server
+              when you confirm.
+            </p>
+
+          </form>
+        </section>
+
+        <!-- Court Details -->
+        <aside
+          class="court-panel"
+          aria-labelledby="court-heading"
+        >
+
+          <div class="court-image-wrap">
+
+            <img
+              id="court-image"
+              src="../../../assets/images/tennis%201.png"
+              alt="Sports court"
+            />
+
+            <span
+              id="court-status"
+              class="status-tag"
+            >
+              Loading...
+            </span>
+
+          </div>
+
+          <div class="court-info">
+
+            <span class="eyebrow">
+              YOUR SELECTED COURT
+            </span>
+
+            <h2 id="court-heading">
+              Loading court...
+            </h2>
+
+            <p id="court-sport">
+              Please wait
+            </p>
+
+            <div class="court-price">
+              <strong id="court-price">—</strong>
+              <span>/ hour</span>
+            </div>
+
+            <div class="court-tip">
+              🏟️ Ready to play? Choose a time
+              on the left to reserve this court.
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- Booking Success -->
+      <section
+        id="success-panel"
+        class="success-panel"
+        hidden
+        aria-live="polite"
+      >
+
+        <div class="success-icon">✓</div>
+
+        <h2>You're booked!</h2>
+
+        <p id="success-message">
+          Your booking was created successfully.
+        </p>
+
+        <a
+          class="primary-button success-back"
+          href="../home/home.html#explore-courts"
+        >
+          Explore More Courts →
+        </a>
+
+      </section>
+
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+</body>
+</html>

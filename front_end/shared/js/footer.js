@@ -1,4 +1,10 @@
 
+"use strict";
+
+// =====================================
+// CourtBook - Shared Footer
+// =====================================
+
 function initializeFooter(root = document) {
   const yearElement = root.querySelector("#footer-year");
 
@@ -7,12 +13,15 @@ function initializeFooter(root = document) {
   }
 }
 
-// Initialize footer when opened directly
+// Initialize when opening footer.html directly
 document.addEventListener("DOMContentLoaded", () => {
   initializeFooter();
 });
 
-// Load footer inside other pages
+// =====================================
+// Load Footer Inside Other Pages
+// =====================================
+
 async function loadFooter(containerId = "footer-root") {
   const container = document.getElementById(containerId);
 
@@ -21,7 +30,7 @@ async function loadFooter(containerId = "footer-root") {
   }
 
   const response = await fetch(
-    "/shared/components/footer.html"
+    "/court_booking/front_end/shared/components/footer.html"
   );
 
   if (!response.ok) {
@@ -46,6 +55,5 @@ async function loadFooter(containerId = "footer-root") {
   initializeFooter(container);
 }
 
+// Make function available globally
 window.loadFooter = loadFooter;
-
-

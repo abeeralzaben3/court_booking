@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Home | CourtBook</title>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="../../../shared/css/variables.css">
+  <link rel="stylesheet" href="../../../shared/css/global.css">
+  <link rel="stylesheet" href="../../../shared/css/navbar.css">
+  <link rel="stylesheet" href="../../../shared/css/footer.css">
+
+  <!-- Home Styles -->
+  <link rel="stylesheet" href="./home.css">
+
+  <!-- Shared Scripts -->
+  <script src="../../../shared/js/navbar.js" defer></script>
+  <script src="../../../shared/js/footer.js" defer></script>
+  <script src="../../../shared/js/logout.js" defer></script>
+
+  <!-- Home Script -->
+  <script src="./home.js" defer></script>
+</head>
+
+<body id="page-top">
+
+  <!-- Navbar loaded from Shared -->
+  <div id="navbar-root"></div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="home-hero">
+      <div class="home-container hero-content">
+
+        <span class="hero-label">YOUR GAME STARTS HERE</span>
+
+        <h1>
+          Find Your<br>
+          <span>Perfect Court.</span>
+        </h1>
+
+        <p>
+          Discover basketball, tennis, and badminton courts.
+          Find the perfect place for your next game.
+        </p>
+
+        <a href="#explore-courts" class="hero-button">
+          Explore Courts <span aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Sports -->
+    <section class="sports-section">
+      <div class="home-container sports-grid">
+
+        <div class="sport-item">
+          <span class="sport-icon" aria-hidden="true">🏀</span>
+          <div>
+            <strong>Basketball</strong>
+            <p>Play with your team</p>
+          </div>
+        </div>
+
+        <div class="sport-item">
+          <span class="sport-icon" aria-hidden="true">🎾</span>
+          <div>
+            <strong>Tennis</strong>
+            <p>Enjoy your match</p>
+          </div>
+        </div>
+
+        <div class="sport-item">
+          <span class="sport-icon" aria-hidden="true">🏸</span>
+          <div>
+            <strong>Badminton</strong>
+            <p>Fast and fun games</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Courts -->
+    <section id="explore-courts" class="courts-section">
+      <div class="home-container">
+
+        <div class="section-header">
+          <div>
+            <span class="section-label">DISCOVER & PLAY</span>
+            <h2>Explore Our Courts</h2>
+            <p>Choose your favorite court and get ready to play.</p>
+          </div>
+
+          <span id="court-count" class="court-count"></span>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="court-toolbar">
+
+          <label class="search-box" for="court-search">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-4-4"></path>
+            </svg>
+
+            <input
+              id="court-search"
+              type="search"
+              placeholder="Search for a court..."
+              autocomplete="off"
+            >
+          </label>
+
+          <div
+            class="sport-filters"
+            role="group"
+            aria-label="Filter courts by sport"
+          >
+            <button
+              type="button"
+              class="filter-button is-active"
+              data-sport="all"
+              aria-pressed="true"
+            >
+              All Courts
+            </button>
+
+            <button
+              type="button"
+              class="filter-button"
+              data-sport="basketball"
+              aria-pressed="false"
+            >
+              Basketball
+            </button>
+
+            <button
+              type="button"
+              class="filter-button"
+              data-sport="tennis"
+              aria-pressed="false"
+            >
+              Tennis
+            </button>
+
+            <button
+              type="button"
+              class="filter-button"
+              data-sport="badminton"
+              aria-pressed="false"
+            >
+              Badminton
+            </button>
+          </div>
+        </div>
+
+        <!-- Courts API Messages -->
+        <p
+          id="courts-message"
+          class="courts-message"
+          role="status"
+          aria-live="polite"
+        >
+          Loading courts...
+        </p>
+
+        <!-- Real Courts from Database -->
+        <div id="courts-grid" class="courts-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="home-cta">
+      <div class="home-container cta-content">
+        <div>
+          <span class="section-label">READY TO PLAY?</span>
+          <h2>Your Next Game Starts Here.</h2>
+          <p>Find your court and make every game count.</p>
+        </div>
+
+        <a href="#explore-courts" class="cta-button">
+          Find a Court →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Court Details Modal -->
+  <dialog
+    id="court-details-dialog"
+    class="court-details-dialog"
+    aria-labelledby="details-title"
+  >
+    <div id="details-content"></div>
+  </dialog>
+
+</body>
+</html>
+

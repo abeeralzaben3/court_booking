@@ -1,0 +1,571 @@
+
+:root {
+  --cb-coral: #FF7F50;
+  --cb-yellow: #FFD166;
+  --cb-mint: #06D6A0;
+  --cb-ink: #1F2937;
+  --cb-muted: #6B7280;
+  --cb-border: #E5E7EB;
+  --cb-bg: #F8F9FA;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cb-bg);
+  color: var(--cb-ink);
+  font-family: Inter, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#navbar-root {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000;
+}
+
+.booking-main {
+  min-height: 75vh;
+  background:
+    radial-gradient(
+      circle at 95% 2%,
+      #ffede5 0,
+      transparent 30%
+    ),
+    var(--cb-bg);
+  padding: 36px 22px 88px;
+}
+
+.booking-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* =====================================
+   Back to Courts Button - Updated
+===================================== */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 13px 22px;
+  background: #ffffff;
+  color: var(--cb-coral);
+
+  border: 2px solid var(--cb-coral);
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+
+  box-shadow: 0 5px 15px rgba(255, 127, 80, 0.12);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  cursor: pointer;
+}
+
+.back-link:hover {
+  background: var(--cb-coral);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 127, 80, 0.25);
+}
+
+.back-link:focus-visible {
+  outline: 3px solid var(--cb-yellow);
+  outline-offset: 3px;
+}
+
+/* =====================================
+   Page Heading
+===================================== */
+
+.page-heading {
+  margin: 26px 0 32px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: var(--cb-coral);
+}
+
+.page-heading h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin: 10px 0;
+}
+
+.page-heading h1 span {
+  color: var(--cb-coral);
+}
+
+.page-heading p,
+.panel-heading p,
+.availability-heading p {
+  color: var(--cb-muted);
+  margin: 5px 0 0;
+  line-height: 1.6;
+}
+
+/* =====================================
+   Booking Layout
+===================================== */
+
+.booking-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(300px, 0.85fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.booking-panel,
+.court-panel,
+.success-panel {
+  background: white;
+  border: 1px solid var(--cb-border);
+  border-radius: 22px;
+  box-shadow: 0 14px 45px rgba(31, 41, 55, 0.055);
+  overflow: hidden;
+}
+
+.booking-panel {
+  padding: 32px;
+}
+
+/* =====================================
+   Panel Headings
+===================================== */
+
+.panel-heading,
+.availability-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel-heading {
+  margin-bottom: 28px;
+}
+
+.panel-heading h2,
+.availability-heading h3 {
+  margin: 0;
+  font-size: 21px;
+  letter-spacing: -0.5px;
+}
+
+.availability-heading h3 {
+  font-size: 18px;
+}
+
+.step-bubble {
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #fff0e9;
+  color: var(--cb-coral);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* =====================================
+   Form Fields
+===================================== */
+
+.field-label {
+  display: block;
+  font-weight: 750;
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+input[type="date"],
+select {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #d9dfe6;
+  border-radius: 12px;
+  padding: 0 14px;
+  background: white;
+  color: var(--cb-ink);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--cb-coral);
+  box-shadow: 0 0 0 4px #ff7f5022;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+  margin-top: 23px;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--cb-muted);
+  line-height: 1.6;
+  margin: 13px 0 25px;
+}
+
+/* =====================================
+   Availability Panel
+===================================== */
+
+.availability-panel {
+  border: 1px solid #edf0f3;
+  background: #fafbfc;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.availability-heading {
+  margin-bottom: 17px;
+}
+
+/* =====================================
+   Buttons
+===================================== */
+
+.secondary-button,
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 15px 20px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  border: 0;
+  text-decoration: none;
+}
+
+.secondary-button {
+  background: #fff0e9;
+  color: #d85e31;
+  border: 1px solid #ffd5c2;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: #ffe2d4;
+  transform: translateY(-2px);
+}
+
+.primary-button {
+  background: var(--cb-coral);
+  color: white;
+  box-shadow: 0 9px 22px #ff7f5033;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #f46d3e;
+  transform: translateY(-2px);
+  box-shadow: 0 13px 24px #ff7f5044;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =====================================
+   Availability Result
+===================================== */
+
+.availability-result {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 14px;
+  color: var(--cb-muted);
+}
+
+.availability-result.good {
+  color: #047857;
+  font-weight: 750;
+}
+
+.availability-result.bad {
+  color: #b91c1c;
+  font-weight: 750;
+}
+
+/* =====================================
+   Price Breakdown
+===================================== */
+
+.price-breakdown {
+  padding: 22px 0 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.price-breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 14px;
+  color: var(--cb-muted);
+}
+
+.price-breakdown strong {
+  color: var(--cb-ink);
+}
+
+.price-breakdown .total-row {
+  padding-top: 16px;
+  border-top: 1px solid var(--cb-border);
+  align-items: center;
+  color: var(--cb-ink);
+  font-weight: 800;
+}
+
+.total-row strong {
+  font-size: 25px;
+  color: var(--cb-coral);
+}
+
+.submit-note {
+  text-align: center;
+  color: var(--cb-muted);
+  font-size: 12px;
+  margin: 13px 0 0;
+}
+
+/* =====================================
+   Court Image
+===================================== */
+
+.court-image-wrap {
+  position: relative;
+  height: 260px;
+  background: #f3f4f6;
+}
+
+.court-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-tag {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  border-radius: 100px;
+  background: white;
+  padding: 8px 13px;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 5px 14px #0002;
+}
+
+.status-tag.active {
+  color: #047857;
+}
+
+.status-tag.maintenance {
+  color: #b91c1c;
+}
+
+/* =====================================
+   Court Details
+===================================== */
+
+.court-info {
+  padding: 27px;
+}
+
+.court-info h2 {
+  font-size: 27px;
+  line-height: 1.2;
+  margin: 10px 0 7px;
+}
+
+.court-info > p {
+  color: var(--cb-muted);
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.court-price {
+  margin: 25px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--cb-border);
+  border-bottom: 1px solid var(--cb-border);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.court-price strong {
+  font-size: 32px;
+  color: var(--cb-coral);
+}
+
+.court-price span {
+  color: var(--cb-muted);
+}
+
+.court-tip {
+  border-radius: 12px;
+  padding: 15px;
+  background: #fff9ed;
+  color: #805a1d;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+/* =====================================
+   Notices
+===================================== */
+
+.notice {
+  padding: 15px 18px;
+  border-radius: 12px;
+  background: #fff0ed;
+  border: 1px solid #ffc7ba;
+  color: #aa3427;
+  margin: 0 0 22px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* =====================================
+   Success Panel
+===================================== */
+
+.success-panel {
+  margin-top: 24px;
+  text-align: center;
+  padding: 32px;
+}
+
+.success-icon {
+  background: #e4fbf2;
+  color: #059669;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 13px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.success-panel h2 {
+  margin: 0 0 8px;
+}
+
+.success-panel p {
+  color: var(--cb-muted);
+}
+
+.success-back {
+  max-width: 270px;
+  margin: 20px auto 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 850px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .court-panel {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+  }
+
+  .court-image-wrap {
+    height: 100%;
+    min-height: 265px;
+  }
+}
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 580px) {
+  .booking-main {
+    padding: 24px 14px 60px;
+  }
+
+  .booking-panel {
+    padding: 20px;
+  }
+
+  .court-panel {
+    display: block;
+  }
+
+  .court-image-wrap {
+    height: 225px;
+    min-height: 0;
+  }
+
+  .page-heading h1 {
+    letter-spacing: -1px;
+  }
+
+  .time-grid {
+    gap: 11px;
+  }
+
+  .availability-panel {
+    padding: 15px;
+  }
+
+  .court-info {
+    padding: 22px;
+  }
+
+  .back-link {
+    padding: 12px 17px;
+    font-size: 13px;
+  }
+}

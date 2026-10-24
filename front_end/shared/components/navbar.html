@@ -1,69 +1,118 @@
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<nav class="navbar" aria-label="Main navigation">
+  <div class="navbar-container">
 
-  <title>CourtBook | Navigation</title>
+    <!-- Logo -->
+    <a
+      class="navbar-brand"
+      href="/court_booking/front_end/pages/player/home/home.html"
+      aria-label="CourtBook Home"
+    >
+      <span class="navbar-brand-icon" aria-hidden="true">
+        CB
+      </span>
 
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/navbar.css">
-</head>
+      <span class="navbar-brand-text">
+        Court<span>Book</span>
+      </span>
+    </a>
 
-<body>
+    <!-- Mobile Menu Button -->
+    <button
+      type="button"
+      class="navbar-toggle"
+      id="navbar-toggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navbar-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-  <nav class="navbar" aria-label="Main navigation">
-    <div class="navbar-container">
+    <!-- Navigation Menu -->
+    <div class="navbar-menu" id="navbar-menu">
 
-      <!-- Brand -->
-      <a href="/index.html" class="navbar-brand">
-        <span class="brand-icon" aria-hidden="true">🏟️</span>
-        <span>CourtBook</span>
-      </a>
+      <!-- Main Links -->
+      <div class="navbar-links">
 
-      <!-- Mobile Menu Button -->
-      <button
-        class="navbar-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="navbar-menu">
-        ☰
-      </button>
+        <a
+          class="nav-link"
+          data-nav="home"
+          href="/court_booking/front_end/pages/player/home/home.html"
+        >
+          Home
+        </a>
 
-      <!-- Navigation Menu -->
-      <div class="navbar-menu" id="navbar-menu">
+        <a
+          class="nav-link"
+          data-nav="courts"
+          href="/court_booking/front_end/pages/player/home/home.html#explore-courts"
+        >
+          Courts
+        </a>
 
-        <div class="navbar-links">
-          <a href="/index.html" class="nav-link">
-            Home
+        <!-- Hidden until My Bookings page is ready -->
+        <a
+          class="nav-link"
+          data-nav="bookings"
+          data-auth-only
+          href="/court_booking/front_end/pages/player/bookings/bookings.html"
+          hidden
+        >
+          My Bookings
+        </a>
+
+      </div>
+
+      <!-- Account Actions -->
+      <div class="navbar-actions">
+
+        <!-- Guest -->
+        <div
+          id="nav-guest-actions"
+          class="nav-auth-group"
+          hidden
+        >
+          <a
+            class="nav-login"
+            href="/court_booking/front_end/pages/auth/login/login.html"
+          >
+            Sign In
           </a>
 
-          <a href="/pages/player/courts/courts.html"
-             class="nav-link">
-            Courts
+          <a
+            class="nav-signup"
+            href="/court_booking/front_end/pages/auth/register/register.html"
+          >
+            Sign Up
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
 
-        <div class="navbar-actions">
-          <a href="/pages/auth/login/login.html"
-             class="nav-link">
-            Login
-          </a>
+        <!-- Logged-in Player -->
+        <div
+          id="nav-user-actions"
+          class="nav-auth-group"
+          hidden
+        >
+          <span class="nav-user-label">
+            <span class="nav-user-dot"></span>
+            Player
+          </span>
 
-          <a href="/pages/auth/register/register.html"
-             class="nav-button">
-            Sign Up
-          </a>
+          <button
+            type="button"
+            class="nav-logout"
+            data-action="logout"
+          >
+            Logout
+          </button>
         </div>
 
       </div>
     </div>
-  </nav>
 
-  <script src="../js/navbar.js"></script>
-
-</body>
-</html>
+  </div>
+</nav>
