@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Create Account | CourtBook</title>
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../../../shared/css/global.css">
+  <link rel="stylesheet" href="../../../shared/css/alert.css">
+
+  <!-- Register CSS -->
+  <link rel="stylesheet" href="./register.css">
+
+  <!-- JavaScript -->
+  <script src="../../../shared/js/alert.js" defer></script>
+  <script src="./register.js" defer></script>
+</head>
+
+<body>
+
+  <main class="auth-page">
+    <div class="auth-container">
+
+      <!-- Brand -->
+      <div class="auth-brand">
+        <a
+          href="../login/login.html"
+          class="brand-logo"
+          aria-label="CourtBook"
+        >
+          <span class="brand-icon">CB</span>
+          <span class="brand-name">
+            Court<span>Book</span>
+          </span>
+        </a>
+
+        <p class="brand-tagline">
+          Your game starts here.
+        </p>
+      </div>
+
+      <!-- Register Card -->
+      <section
+        class="auth-card"
+        aria-labelledby="register-title"
+      >
+
+        <div class="auth-header">
+          <h1 id="register-title">Create Your Account</h1>
+          <p>
+            Join CourtBook and start booking your favorite courts.
+          </p>
+        </div>
+
+        <form id="register-form" novalidate>
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="register-name">Full Name</label>
+
+            <input
+              type="text"
+              id="register-name"
+              name="full_name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              maxlength="100"
+              required
+            >
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="register-email">Email Address</label>
+
+            <input
+              type="email"
+              id="register-email"
+              name="email"
+              placeholder="Enter your email"
+              autocomplete="email"
+              maxlength="100"
+              required
+            >
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="register-phone">
+              Phone Number
+              <span class="optional-label">(Optional)</span>
+            </label>
+
+            <input
+              type="tel"
+              id="register-phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              autocomplete="tel"
+              maxlength="20"
+            >
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="register-password">Password</label>
+
+            <div class="password-field">
+              <input
+                type="password"
+                id="register-password"
+                name="password"
+                placeholder="Create a password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              >
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="register-password"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="register-confirm-password">
+              Confirm Password
+            </label>
+
+            <div class="password-field">
+              <input
+                type="password"
+                id="register-confirm-password"
+                name="confirm_password"
+                placeholder="Confirm your password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              >
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="register-confirm-password"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+          <!-- Error Message -->
+          <p
+            id="register-error"
+            class="form-error"
+            role="alert"
+            aria-live="polite"
+            hidden
+          ></p>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            id="register-submit"
+            class="register-button"
+          >
+            <span id="register-button-text">
+              Create Account
+            </span>
+
+            <span
+              id="register-spinner"
+              class="button-spinner"
+              aria-hidden="true"
+              hidden
+            ></span>
+          </button>
+
+        </form>
+
+        <!-- Login Link -->
+        <div class="auth-footer">
+          <p>
+            Already have an account?
+            <a href="../login/login.html">Sign In</a>
+          </p>
+        </div>
+
+      </section>
+
+      <p class="auth-bottom-text">
+        © CourtBook. All rights reserved.
+      </p>
+
+    </div>
+  </main>
+
+</body>
+</html>
